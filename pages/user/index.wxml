@@ -12,5 +12,5 @@
   </view>
 </view>
 <view class="user-list">
-  <navigator class="iconfont icon-xiangyou">收藏列表</navigator> 
+  <navigator url="/pages/collection/index" class="iconfont icon-xiangyou">收藏列表</navigator> 
 </view>

@@ -4,7 +4,8 @@
     "pages/user/index",
     "pages/shoplist/index",
     "pages/shopdetail/index",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/collection/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
