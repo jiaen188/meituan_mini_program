@@ -1,0 +1,16 @@
+<view class="user-info">
+  <button class="btn">获取登录授权</button>
+  <view class="user">
+    <image src="/common/img/img.png" class="user-photo" />
+    <view class="user-txt">
+      <text>Jiaen</text>
+      <text>男</text>
+    </view>
+    <view class="user-txt">
+      <text>China</text>
+    </view>
+  </view>
+</view>
+<view class="user-list">
+  <navigator class="iconfont icon-xiangyou">收藏列表</navigator> 
+</view>

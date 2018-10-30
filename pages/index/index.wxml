@@ -2,7 +2,7 @@
 <scroll-view class="scroll-page" scroll-y>
   <view class="header">
     <navigator class="city">北京</navigator>
-    <navigator class="userinfo">
+    <navigator url="/pages/user/index" class="userinfo">
       <image src="/common/img/login.png" />
     </navigator>
   </view>
