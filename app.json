@@ -5,7 +5,8 @@
     "pages/shoplist/index",
     "pages/shopdetail/index",
     "pages/login/index",
-    "pages/collection/index"
+    "pages/collection/index",
+    "pages/citylist/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
