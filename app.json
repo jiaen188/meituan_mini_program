@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/user/index",
     "pages/index/index",
+    "pages/user/index",
     "pages/shoplist/index",
-    "pages/shopdetail/index"
+    "pages/shopdetail/index",
+    "pages/login/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
