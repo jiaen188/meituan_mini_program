@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/shopdetail/index",
+    "pages/index/index",
+    "pages/shoplist/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#181818",
+    "navigationBarTitleText": "嘉恩点评",
+    "navigationBarTextStyle": "#fff"
+  }
+}

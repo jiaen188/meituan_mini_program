@@ -1,0 +1,22 @@
+<template name="list">
+  <view class="list">
+    <view class="list-item">
+      <navigator url="/pages/shopdetail/index">
+        <image class="list-img" src="/common/img/img.png" />
+        <view class="list-info">
+          <view class="list-title">妙味课堂</view>
+          <view class="clear">
+            <view class="list-score">
+              <view class="score"></view>
+            </view>
+            <view class="list-price">￥40/人</view>
+          </view>
+          <view class="list-position">
+            上地 快餐简餐
+            <text class="list-dis">距离</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</template>
