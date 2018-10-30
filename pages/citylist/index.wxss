@@ -32,3 +32,18 @@
   background: #fff;
   border: 1px solid #999;
 }
+.city-index-list {
+  display: flex;
+  position: fixed;
+  right: 10rpx;
+  top: 0;
+  width: 52rpx;
+  height: 100%;
+}
+.city-index-list-inner {
+  margin: auto;
+  width: 52rpx;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 38rpx;
+}

@@ -13,6 +13,8 @@
   <view class="city-hot-item">苏州</view>
   <view class="city-hot-item">南京</view>
   <view class="city-hot-item">天津</view>
+  <view class="city-hot-item">武汉</view>
+  <view class="city-hot-item">西安</view>
 </view>
 <view class="city-index">A</view>
 <view class="city-list">
@@ -32,4 +34,33 @@
 <view class="city-index">B</view>
 <view class="city-list">
   <view class="city-list-item">北京</view>
+</view>
+<view class="city-index-list">
+  <view class="city-index-list-inner">
+    <view>热门</view>
+    <view>A</view>
+    <view>B</view>
+    <view>C</view>
+    <view>D</view>
+    <view>E</view>
+    <view>F</view>
+    <view>G</view>
+    <view>H</view>
+    <view>I</view>
+    <view>J</view>
+    <view>K</view>
+    <view>L</view>
+    <view>A</view>
+    <view>B</view>
+    <view>C</view>
+    <view>D</view>
+    <view>E</view>
+    <view>F</view>
+    <view>G</view>
+    <view>H</view>
+    <view>I</view>
+    <view>J</view>
+    <view>K</view>
+    <view>L</view>
+  </view>
 </view>
