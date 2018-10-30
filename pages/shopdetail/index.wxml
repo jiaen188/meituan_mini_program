@@ -28,3 +28,4 @@
     <view class="shop-dis">距您步40米，需要1分钟</view>
   </view>
 </view>
+<button type="default" class="btn">收藏店铺</button>

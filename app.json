@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/shopdetail/index",
     "pages/index/index",
-    "pages/shoplist/index"
+    "pages/shoplist/index",
+    "pages/shopdetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

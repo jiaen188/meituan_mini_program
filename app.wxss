@@ -17,3 +17,9 @@ page {
 .navigator-hover {
   background: transparent;
 }
+.btn {
+  width: 500rpx;
+  margin: 20rpx auto;
+  background: #f60 !important;
+  color: #fff !important;
+}
