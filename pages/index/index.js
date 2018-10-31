@@ -1,4 +1,5 @@
 const api = require('../../helper/apis')
+const req = require('../../helper/req')
 
 //index.js
 //获取应用实例
@@ -10,12 +11,12 @@ Page({
   },
  
   onLoad: function () {
-    api.request({
-      url: 'https://www.koocv.com/article/shoplist?page=1&rows=10',
-      methods: 'POST'
+    req.getShops({}, {
+      page:1,
+      rows: 10
     })
-    .then(res => {
-      console.log(res)
+    .then(res=>{
+      console.log(res, '----');
     })
   }
 })
