@@ -17,11 +17,11 @@
   width: 509rpx;
 }
 .list-title {
-  font: blod 30rpx/60rpx "宋体";
+  font: bold 30rpx/40rpx "宋体";
   color: #000;
 }
 .list-score {
-  margin-top: 12rpx;
+  margin-top: 6rpx;
   float: left;
   width: 131rpx;
   height: 25rpx;
@@ -39,13 +39,13 @@
   float: left;
   margin-left: 10rpx;
   font-size: 26rpx;
-  line-height: 52rpx;
+  line-height: 40rpx;
   color: #000;
 }
 .list-position {
   position: relative;
-  font-size:  26rpx;
-  line-height: 52rpx;
+  font-size: 26rpx;
+  line-height: 40rpx;
   color: #999;
 }
 .list-dis {
@@ -58,4 +58,23 @@
   line-height: 60rpx;
   text-align: center;
   color: #333;
+}
+
+.classify{
+  margin-left: 20rpx;
+}
+
+.label {
+  margin-top: 5rpx;
+}
+.label text {
+  float:left;
+  margin-right: 10rpx;
+  border: 1px solid #bbb;
+  padding: 0 10rpx;
+  font: 22rpx/ 39rpx "宋体";
+  color: #707070;
+}
+.label text:last-child {
+  margin-right: 0;
 }

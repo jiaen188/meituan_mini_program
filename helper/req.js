@@ -19,7 +19,7 @@ let post = (op = {})=>{
       ...op.header
     },
     method: 'POST'
-  }).then(res=>res.data);
+  }).then(res => res.data);
 };
 
 

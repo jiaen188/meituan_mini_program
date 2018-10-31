@@ -7,7 +7,7 @@ const app = getApp()
 
 Page({
   data: {
-    
+    guessLike: []
   },
  
   onLoad: function () {
@@ -17,6 +17,11 @@ Page({
     })
     .then(res=>{
       console.log(res, '----');
+      if (res.length) {
+        this.setData({
+          guessLike: [...res]
+        })
+      }
     })
   }
 })
