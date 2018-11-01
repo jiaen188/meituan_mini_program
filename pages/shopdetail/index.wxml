@@ -28,7 +28,11 @@
   </view>
   <view class="shop-position iconfont icon-dingwei">
     <view class="shop-address">{{address}}</view>
-    <view class="shop-dis">距您步40米，需要1分钟</view>
+    <block wx:if="{{hasLocationAuth}}">
+      <view class="shop-dis" wx:if="{{distance!==-1}}">距您步{{distance || '--'}}米</view>
+      <view class="shop-dis" wx:else>距离过长</view>
+    </block>
+    <button wx:else open-type="openSetting">授权位置</button>
   </view>
 </view>
 <button type="default" class="btn">收藏店铺</button>

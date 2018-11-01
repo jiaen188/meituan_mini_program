@@ -11,7 +11,9 @@ Page({
    */
   data: {
     info: {},
-    address: ''
+    address: '',
+    distance: '', // 我的位置 到 店铺 的距离
+    hasLocationAuth: true
   },
 
   /**
@@ -33,15 +35,19 @@ Page({
         }
       })
       .then(location => {
-        return qqmapsdk.reverseGeocoder(location)
+        // 逆向位置解析 https://lbs.qq.com/qqmap_wx_jssdk/method-reverseGeocoder.html
+        return Promise.all([
+          qqmapsdk.reverseGeocoder({location}),
+          this._getLocation(location),
+          location
+        ])
       })
-      .then(res => {
-        if (res.status === 0) {
+      .then(([shopAddress, myLocation, toLocation]) => {
+        if (shopAddress.status === 0) {
           this.setData({
-            address: res.result.address
+            address: shopAddress.result.address
           })
         }
-        console.log(res)
       })
   },
 
@@ -56,7 +62,56 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let { info } = this.data;
+    let arr = Object.keys(info)
+    if (arr.length) {
+      this._getLocation({
+        latitude: info.lat,
+        longitude: info.lng
+      })
+    }
+  },
 
+  _getLocation(toLocation) {
+    return api.getLocation({ type: 'gcj02' })
+      .then(myLocation => {
+        this.setData({
+          hasLocationAuth: true
+        })
+        let from = {
+          latitude: myLocation.latitude,
+          longitude: myLocation.longitude
+        }
+
+        // 计算距离api https://lbs.qq.com/qqmap_wx_jssdk/method-calculatedistance.html
+        return qqmapsdk.calculateDistance({
+          from,
+          to: [{
+            latitude: 30.04 + Math.random() / 10,
+            longitude: 119.96 + Math.random() / 10
+          }]
+        })
+      })
+      .then(res => {
+        if (res.status === 0) {
+          this.setData({
+            distance: res.result.elements[0].distance
+          })
+        }
+      })
+      .catch(e => {
+        if (e.errMsg === 'getLocation:fail auth deny') {
+          this.setData({
+            hasLocationAuth: false
+          })
+        }
+
+        if (e.status) {
+          this.setData({
+            distance: -1
+          })
+        }
+      })
   },
 
   /**
