@@ -1,4 +1,4 @@
-
+const QQMapWX = require('../lib/qqmap-wx-jssdk.min.js');
 
 let bindAPI = (apiName, bindObj=wx)=>(o={})=>new Promise((resolve, reject)=>{
 
@@ -111,5 +111,24 @@ const apis = rawNameArr.reduce( (accu,elt)=>{
   return accu;
 }, {});
 
+// qqwx 地图 api
+// 文档地址 https://lbs.qq.com/qqmap_wx_jssdk/index.html
+apis.createQQMap =()=>{
+
+  let ins = new QQMapWX({key: "XMIBZ-H3AAV-UV3PK-UK2FN-EQK7Q-KMFUS"});
+
+  return [
+    'search',
+    'getSuggestion',
+    'reverseGeocoder',
+    'geocoder',
+    'getCityList',
+    'getDistrictByCityId',
+    'calculateDistance'
+  ].reduce((accu, name)=>{
+    accu[name] = bindAPI(name, ins);
+    return accu;
+  },{});
+};
 
 module.exports = apis;

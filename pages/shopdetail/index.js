@@ -1,4 +1,8 @@
 const req = require('../../helper/req')
+const api = require('../../helper/apis')
+
+// 文档地址 https://lbs.qq.com/qqmap_wx_jssdk/index.html
+const qqmapsdk = new api.createQQMap();
 
 Page({
 
