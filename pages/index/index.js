@@ -7,7 +7,10 @@ const app = getApp()
 
 Page({
   data: {
-    guessLike: []
+    guessLike: [],
+    page: 2,
+    isListLoading: false,
+    isLoadingAll: false
   },
  
   onLoad: function () {
@@ -20,6 +23,34 @@ Page({
       if (res.length) {
         this.setData({
           guessLike: [...res]
+        })
+      }
+    })
+  },
+
+  onReachBottom() {
+    let { page, guessLike, isListLoading, isLoadingAll } = this.data;
+    if (isListLoading || isLoadingAll) return;
+    this.setData({
+      isListLoading: true
+    })
+    req.getShops({}, {
+      page,
+      rows: 10
+    })
+    .then(res=>{
+      console.log(res, '----');
+      if (res.length) {
+        this.setData({
+          guessLike: [...guessLike, ...res],
+          page: page + 1,
+          isListLoading: false
+        })
+      }
+      if (res.error) {
+        this.setData({
+          isListLoading: false,
+          isLoadingAll: true
         })
       }
     })

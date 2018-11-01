@@ -1,5 +1,5 @@
 <import src="/common/template/list.wxml" />
-<scroll-view class="scroll-page" scroll-y>
+<view class="scroll-page" >
   <view class="header">
     <navigator url="/pages/citylist/index" class="city">北京</navigator>
     <navigator url="/pages/user/index" class="userinfo">
@@ -32,5 +32,6 @@
     <view class="hot-title">猜你喜欢</view>
     <template is="list" data="{{list:guessLike}}"></template>
   </view>
-  <view class="load-more">正在加载更多内容......</view>
-</scroll-view>
+  <view class="load-more" wx:if="{{isListLoading}}">正在加载更多内容......</view>
+  <view class="load-more" wx:if="{{isLoadingAll}}">没有更多内容</view>
+</view>
