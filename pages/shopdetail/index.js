@@ -10,7 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info: {}
+    info: {},
+    address: ''
   },
 
   /**
@@ -23,7 +24,24 @@ Page({
           this.setData({
             info: res.info
           })
+          return {
+            latitude: res.info.lat,
+            longitude: res.info.lng
+          }
+        } else {
+          throw '获取商铺详情失败'
         }
+      })
+      .then(location => {
+        return qqmapsdk.reverseGeocoder(location)
+      })
+      .then(res => {
+        if (res.status === 0) {
+          this.setData({
+            address: res.result.address
+          })
+        }
+        console.log(res)
       })
   },
 
