@@ -1,27 +1,30 @@
 <view class="shop-detail">
   <view class="list-item">
-    <image class="list-img" src="/common/img/img.png" />
+    <image class="list-img" src="{{info.image_path ? 'https://www.koocv.com' + info.image_path : ''}}" />
     <view class="list-info">
-      <view class="list-title">妙味课堂</view>
+      <view class="list-title">{{info.title}}</view>
       <view class="clear">
         <view class="list-score">
-          <view class="score"></view>
+          <view class="score" style="width:{{info.score * 10}}%"></view>
         </view>
-        <view class="list-price">￥40/人</view>
+        <view class="list-price">￥{{info.price}}/人</view>
       </view>
       <view class="shop-score">
-        口味:7.2 环境:7.1 服务:9.2
+        <text>环境: {{info.environment}}</text>
+        <text>服务: {{info.service}}</text>
       </view>
       <view class="list-position">
-        上地 快餐简餐
+        {{info.place}} {{info.clssify}}
       </view>
     </view>
   </view>
   <view class="shop-aside iconfont icon-xiangyou">
-    <text class="iconfont icon-shijian">营业至22:00</text>
-    <text class="iconfont icon-wifi">WIFI</text>
-    <text class="iconfont icon-baoxiang">包厢</text>
-    <text class="iconfont icon-baobaoyi">宝宝椅</text>
+    <text class="iconfont icon-shijian">{{info.shopHours}}</text>
+    <text class="iconfont icon-wifi" wx:if="{{info.hasWifi!=='0'}}">WIFI</text>
+    <text class="iconfont icon-yezishu" wx:if="{{info.hasSight!=='0'}}">WIFI</text>
+    <text class="iconfont icon-baoxiang" wx:if="{{info.hasBox!=='0'}}">包厢</text>
+    <text class="iconfont icon-shafa" wx:if="{{info.hasSofa!=='0'}}">沙发</text>
+    <text class="iconfont icon-baobaoyi" wx:if="{{info.hasBabyChair!=='0'}}">宝宝椅</text>
   </view>
   <view class="shop-position iconfont icon-dingwei">
     <view class="shop-address">北京市海淀区西二旗</view>

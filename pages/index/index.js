@@ -1,4 +1,3 @@
-const api = require('../../helper/apis')
 const req = require('../../helper/req')
 
 //index.js

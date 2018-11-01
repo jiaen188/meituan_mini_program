@@ -4,9 +4,10 @@ const baseURL = 'https://www.koocv.com';
 
 let get = (op = {})=>{
   return api.request({
+    url: baseURL + op.path,
     ...op,
     method: 'GET'
-  });
+  }).then(res => res.data);
 }
 
 let post = (op = {})=>{
@@ -27,5 +28,12 @@ exports.getShops = (data = {}, q)=>{
   return post({
     path: `/article/shoplist?page=${q.page}&rows=${q.rows}`,
     data
+  })
+}
+
+exports.getShopDetail = (id) => {
+  return get({
+    path: `/article/detail`,
+    data: { id }
   })
 }

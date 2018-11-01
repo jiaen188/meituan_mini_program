@@ -11,7 +11,7 @@
       wx:for="{{list}}"
       wx:key="{{id}}"
     >
-      <navigator url="/pages/shopdetail/index">
+      <navigator url="/pages/shopdetail/index?id={{item.id}}">
         <image class="list-img" src="https://www.koocv.com{{item.image_path}}" />
         <view class="list-info">
           <view class="list-title">{{item.title}}</view>
