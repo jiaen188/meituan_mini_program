@@ -37,3 +37,25 @@ exports.getShopDetail = (id) => {
     data: { id }
   })
 }
+
+exports.login = (userInfo) => {
+  return api.login()
+    .then(res => {
+      return get({
+        url: 'https://wx.miaov.com/login',
+        header: {
+          'X-WX-Code': res.code,
+          'X-WX-Encrypted-Data': userInfo.encryptedData,
+          'X-WX-IV': userInfo.iv,
+        }
+      })
+    })
+    .then(res => {
+      if (res.code === 0) {
+        wx.setStorageSync('userInfo', res.data.userinfo)
+        return res.data.userinfo
+      } else {
+        throw res
+      }
+    })
+}
