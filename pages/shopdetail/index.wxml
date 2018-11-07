@@ -35,4 +35,6 @@
     <button wx:else open-type="openSetting">授权位置</button>
   </view>
 </view>
-<button type="default" class="btn" bind:tap="onTapFav">收藏店铺</button>
+<button type="default" class="btn" bind:tap="onTapFav">
+  {{favID ? '取消收藏' : '收藏店铺'}}
+</button>

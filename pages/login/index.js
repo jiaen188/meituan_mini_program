@@ -17,6 +17,7 @@ Page({
   },
 
   onGetUserInfo({ detail }) {
+    console.log('onGetUserInfo的返回', detail)
     if(detail.errMsg === 'getUserInfo:ok') {
       req.login(detail)
         .then(userInfo => {

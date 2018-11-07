@@ -10,16 +10,21 @@ Page({
    * 页面的初始数据
    */
   data: {
+    shopID: '', // 商铺的 id
+    favID: '', // 收藏的 id
     info: {},
     address: '',
     distance: '', // 我的位置 到 店铺 的距离
-    hasLocationAuth: true
+    hasLocationAuth: true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      shopID: options.id
+    })
     req.getShopDetail(options.id)
       .then(res => {
         if (!res.error) {
@@ -67,6 +72,18 @@ Page({
     let userInfo = wx.getStorageSync('userInfo')
     if(userInfo) {
       console.log(userInfo, '有')
+      req.checkFav({
+        open_id: userInfo.openId,
+        article_id: this.data.shopID
+      })
+      .then(res => {
+        console.log('res收藏', res)
+        if (res.code === 0) {
+          this.setData({
+            favID: res.fav_id
+          })
+        }
+      })
     }
   },
 
@@ -118,6 +135,39 @@ Page({
     if(!userInfo) {
       wx.navigateTo({ url: '/pages/login/index' })
       return;
+    }
+
+    let {openId} = userInfo
+
+    let { favID, shopID } = this.data
+
+    if (favID) {
+      req.delFav({
+        open_id: openId,
+        article_id: shopID,
+        fav_id: favID
+      })
+      .then(res => {
+        console.log('取消收藏的结果', res)
+        if (res.code === 0) {
+          this.setData({
+            favID: ''
+          })
+        }
+      })
+    } else {
+      req.addFav({
+        open_id: openId,
+        article_id: shopID
+      })
+      .then(res => {
+        console.log('添加收藏的结果', res)
+        if (res.code === 0) {
+          this.setData({
+            favID: res.fav_id
+          })
+        }
+      })
     }
   }
 })

@@ -59,3 +59,34 @@ exports.login = (userInfo) => {
       }
     })
 }
+
+exports.checkFav = ({open_id, article_id} = {}) => {
+  return post({
+    path: '/fav/getfavid',
+    data: {
+      open_id,
+      article_id
+    }
+  })
+}
+
+exports.addFav = ({open_id, article_id} = {}) => {
+  return post({
+    path: '/fav/addfav',
+    data: {
+      open_id,
+      article_id
+    }
+  })
+}
+
+exports.delFav = ({open_id, article_id, fav_id} = {}) => {
+  return post({
+    path: '/fav/delfav',
+    data: {
+      open_id,
+      article_id,
+      fav_id
+    }
+  })
+}
